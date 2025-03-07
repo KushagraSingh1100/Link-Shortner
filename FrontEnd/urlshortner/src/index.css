@@ -6,6 +6,11 @@
   --font-poppins: "Poppins", sans-serif;
 }
 
+:root {
+
+  scroll-behavior: smooth;
+}
+
 .home-links svg {
   width: 74.5vw;
   z-index: 1;
@@ -14,8 +19,18 @@
   border-bottom-left-radius: 3vw;
 }
 
-.home-top{
+.home-top {
   z-index: 100;
   position: fixed;
 
+}
+
+.link-input{
+  position: relative;
+}
+
+@media screen and (max-width: 40rem) {
+  .home-links svg {
+    width: 82vw;
+  }
 }

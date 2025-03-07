@@ -55,15 +55,15 @@ function HomePage() {
   return (
     <div
       id="home-page"
-      className="home-page h-screen mb-10 font-poppins flex flex-col items-center justify-start"
+      className="home-page max-md:mb-10 h-max max-sm:h-max max-sm:w-[98vw] mb-40 font-poppins flex flex-col items-center justify-start"
     >
-      <div className="home-top p-6 bg-white flex w-full items-center justify-between">
-        <div className="heading">
-          <h1 className="font-bold text-4xl cursor-pointer text-blue-600">
+      <div className="home-top p-6 bg-white flex w-full max-sm:w-[98vw] max-sm:justify-center items-center justify-between">
+        <div className="heading w-max">
+          <h1 className="font-bold  text-4xl max-sm:text-[3vh] cursor-pointer text-blue-600">
             Rapid Shortener
           </h1>
         </div>
-        <div className="links">
+        <div className="links max-sm:hidden">
           <ul className=" flex flex-row gap-5">
             <a className="hover:text-sky-600    " href="#home-page">
               <li>Home</li>
@@ -71,29 +71,33 @@ function HomePage() {
             <a className="hover:text-sky-600" href="#about-page">
               <li>About</li>
             </a>
-            <a className="hover:text-sky-600" href="">
+            <a
+              className="hover:text-sky-600"
+              href="https://github.com/KushagraSingh1100/Link-Shortner"
+              target="_blank"
+            >
               <li>Source Code</li>
             </a>
           </ul>
         </div>
       </div>
-      <div className="home-links bg-blue-50 mt-20 pt-10 rounded-2xl w-9/12 h-120 flex flex-col gap-2 justify-start items-center">
-        <div className="heading z-10 text-3xl font-bold text-gray-700">
+      <div className="home-links relative max-sm:w-10/12 bg-blue-50 mt-20 pt-10 rounded-2xl w-9/12 h-120 flex flex-col gap-2 justify-start items-center">
+        <div className="heading z-10 text-3xl max-sm:text-3xl max-sm:text-center max-md:text-center max-sm:font-normal font-bold text-gray-700">
           <h1>Enter your long and boring link</h1>
         </div>
-        <div className="link-input-top z-10 flex gap-3 bg-blue-50 p-10 rounded-2xl">
+        <div className="link-input-top w-[100%] max-md:flex max-md:items-center max-md:gap-5 z-10 flex justify-center gap-3 max-sm:flex-col max-sm:w-[80vw] max-sm:items-center max-sm:gap-10 max-md:flex-col max-md:w-[100%] bg-blue-50 p-10 max-sm:p-3 rounded-2xl">
           <button
             onClick={async () => {
               const text = await navigator.clipboard.readText();
               setLink(text);
             }}
-            className="hover:cursor-pointer hover:opacity-60"
+            className="hover:cursor-pointer hover:opacity-60 max-sm:hidden max-md:hidden"
           >
             <img className="w-8" src={paste} alt="" />
           </button>
           <input
             placeholder="Shorten your link"
-            className="text-center font-light border-1 border-gray-400 w-xl h-14 rounded-2xl"
+            className="text-center max-sm:w-[100%] max-md:w-[100%]  font-light border-1 border-gray-400 w-xl h-14 rounded-2xl"
             value={link}
             type="text"
             onChange={(e) => {
@@ -107,12 +111,12 @@ function HomePage() {
           />
           <button
             onClick={() => handleClick()}
-            className="hover:cursor-pointer hover:opacity-60 text-white bg-blue-600 w-38 rounded-4xl"
+            className="hover:cursor-pointer max-sm:w-[60%] max-md:w-[60%] max-md:h-12 max-sm:h-14 max-sm:text-[4vw] hover:opacity-60 text-white bg-blue-600 w-38 rounded-4xl"
           >
             Shorten
           </button>
         </div>
-        <div className="link-input-bottom w-full flex flex-col items-center gap-5 justify-center ">
+        <div className="link-input-bottom relative w-full flex flex-col items-center gap-5 justify-center ">
           <div className="z-10 copied-link flex flex-row gap-1">
             <h1>Shortened Link: </h1>
             <h3>{finalLink}</h3>
@@ -138,7 +142,7 @@ function HomePage() {
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
           version="1.1"
-          className="absolute bottom-18 left-47"
+          className="absolute hidden lg:flex max-sm:bottom-88 max-sm:left-8 bottom-[-20%] left-[-0.2%]"
         >
           <g>
             <path
