@@ -1,22 +1,11 @@
 require("dotenv").config();
 
-const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
 const urlRoute = require("./routes/urls");
 
 const app = express();
 const PORT = process.env.PORT;
-
-const corsConfig = {
-  origin:
-    process.env.Client_URL || "https://link-shortner-frontend-opal.vercel.app",
-  credentials: true,
-  methods: ["GET", "POST"],
-};
-
-app.use(cors(corsConfig));
-app.options("*", cors(corsConfig));
 
 app.use(express.json());
 app.use("/", urlRoute);
