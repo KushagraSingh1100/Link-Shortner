@@ -8,9 +8,15 @@ const urlRoute = require("./routes/urls");
 const app = express();
 const PORT = process.env.PORT;
 
-app.use(cors());
+const corsConfig = {
+  origin: process.env.Client_URL,
+  credentials: true,
+  method: ["GET", "POST"],
+};
+
+app.options("", cors(corsConfig));
+app.use(cors(corsConfig));
 app.use(express.json());
-app.use("/", res.json({ msg: "Server Running" }));
 app.use("/", urlRoute);
 
 mongoose
