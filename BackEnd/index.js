@@ -1,12 +1,11 @@
-require("dotenv").config();
+import dotenv from "dotenv";
+import cors from "cors";
+import express from "express";
+import mongoose from "mongoose";
+import urlRoute from "./routes/urls.js";
 
-const cors = require("cors");
-const express = require("express");
-const mongoose = require("mongoose");
-const urlRoute = require("./routes/urls");
-
+dotenv.config();
 const app = express();
-const PORT = process.env.PORT;
 
 app.use(cors());
 app.use(express.json());
