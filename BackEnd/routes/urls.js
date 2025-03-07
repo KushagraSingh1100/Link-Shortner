@@ -1,12 +1,11 @@
-import express from "express";
-import {
+const express = require("express");
+const {
   handleNewShortURL,
   handleGetURL,
-} from "../controllers/urlControllers.js";
-
+} = require("../controllers/urlControllers");
 const router = express.Router();
 
 router.post("/url", handleNewShortURL);
 router.get("/:shortId", handleGetURL);
 
-export default router;
+module.exports = router;
