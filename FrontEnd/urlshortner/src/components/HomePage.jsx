@@ -8,7 +8,7 @@ function HomePage() {
   const [finalLink, setFinalLink] = useState("");
   const handleClick = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/url`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/url`, {
         method: "POST",
         body: JSON.stringify({ url: link }),
         headers: {
@@ -23,7 +23,7 @@ function HomePage() {
         throw new Error(json.error || "Something went wrong");
       }
 
-      setShortURL(`${import.meta.env.VITE_BACKEND_URL}/api/${json.id}`);
+      setShortURL(`${import.meta.env.VITE_BACKEND_URL}/${json.id}`);
       setLink("");
     } catch (error) {
       console.error("❌ Fetch error:", error.message);
