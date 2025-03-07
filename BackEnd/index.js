@@ -9,13 +9,15 @@ const app = express();
 const PORT = process.env.PORT;
 
 const corsConfig = {
-  origin: process.env.Client_URL,
+  origin:
+    process.env.Client_URL || "https://link-shortner-frontend-opal.vercel.app",
   credentials: true,
-  method: ["GET", "POST"],
+  methods: ["GET", "POST"],
 };
 
-app.options("", cors(corsConfig));
 app.use(cors(corsConfig));
+app.options("*", cors(corsConfig));
+
 app.use(express.json());
 app.use("/", urlRoute);
 
