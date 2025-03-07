@@ -10,6 +10,7 @@ const PORT = process.env.PORT;
 
 app.use(cors());
 app.use(express.json());
+app.use("/", res.json({ msg: "Server Running" }));
 app.use("/", urlRoute);
 
 mongoose
