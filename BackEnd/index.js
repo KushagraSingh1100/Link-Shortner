@@ -20,4 +20,4 @@ mongoose
     console.log(err);
   });
 
-module.exports = app;
+export default app;

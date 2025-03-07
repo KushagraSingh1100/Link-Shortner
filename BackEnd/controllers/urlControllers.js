@@ -1,5 +1,5 @@
-const { nanoid } = require("nanoid");
-const URL = require("../models/urlModel");
+import { nanoid } from "nanoid";
+import URL from "../models/urlModel.js";
 
 const handleNewShortURL = async (req, res) => {
   console.log("📢 Received request body:", req.body);
@@ -31,4 +31,4 @@ const handleGetURL = async (req, res) => {
   res.redirect(entry.longURL);
 };
 
-module.exports = { handleNewShortURL, handleGetURL };
+export { handleNewShortURL, handleGetURL };
