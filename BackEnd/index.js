@@ -7,6 +7,14 @@ const urlRoute = require("./routes/urls");
 const app = express();
 const PORT = process.env.PORT;
 
+app.UseCors((x) =>
+  x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed((origin) => true)
+    .AllowCredentials()
+);
+
 app.use(express.json());
 app.use("/", urlRoute);
 
