@@ -1,5 +1,6 @@
 require("dotenv").config();
 
+const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
 const urlRoute = require("./routes/urls");
@@ -7,14 +8,13 @@ const urlRoute = require("./routes/urls");
 const app = express();
 const PORT = process.env.PORT;
 
-app.UseCors((x) =>
-  x
-    .AllowAnyMethod()
-    .AllowAnyHeader()
-    .SetIsOriginAllowed((origin) => true)
-    .AllowCredentials()
+app.use(
+  cors({
+    origin: "https://link-shortner-frontend-opal.vercel.app",
+    methods: "GET,POST,PUT,DELETE",
+    allowedHeaders: "Content-Type",
+  })
 );
-
 app.use(express.json());
 app.use("/", urlRoute);
 
