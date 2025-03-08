@@ -8,13 +8,8 @@ const urlRoute = require("./routes/urls");
 const app = express();
 const PORT = process.env.PORT;
 
-app.use(
-  cors({
-    origin: "https://link-shortner-frontend-opal.vercel.app",
-    methods: "GET,POST,PUT,DELETE",
-    allowedHeaders: "Content-Type",
-  })
-);
+app.use(cors());
+app.options("*", cors());
 app.use(express.json());
 app.use("/", urlRoute);
 
